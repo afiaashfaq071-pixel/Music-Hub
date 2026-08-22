@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify - Web Player: Music for everyone</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: sans-serif;
+        }
+
+        .box {
+            background-color: white;
+            border-radius: 25px;
+            color: black;
+            width: 500px;
+            height: 150px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .box button {
+            position: absolute;
+            bottom: 20px;
+            right: 100px;
+        }
+
+        button {
+            background-color: rgb(0, 255, 0);
+            color: black;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 20px;
+            font-weight: 700;
+            border: 3px solid black;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: rgb(0, 150, 0);
+        }
+
+        .box1 {
+            height: 200px;
+            width: 200px;
+            position: absolute;
+            top: 10px;
+            left: 50px;
+            background-color: white;
+            padding: 40px;
+            border-radius: 50%;
+        }
+
+        .box2 {
+            height: 200px;
+            width: 200px;
+            position: absolute;
+            top: 10px;
+            right: 50px;
+            background-color: white;
+            padding: 40px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box">
+        <h2>
+            Welcome to SPOTIFY made by myself
+        </h2>
+        <a href="index.html"><button>Welcome</button></a>
+    </div>
+    <script>
+        function colorgenerator() {
+            let val1 = Math.ceil(0 + Math.random() * 250);
+            let val2 = Math.ceil(0 + Math.random() * 250);
+            let val3 = Math.ceil(0 + Math.random() * 250);
+            return `rgb(${val1}, ${val2}, ${val3})`;
+        }
+
+
+        const box1 = document.querySelector(".box1");
+        const box2 = document.querySelector(".box2");
+        setInterval(() => {
+            box1.style.backgroundColor = colorgenerator();
+            box2.style.backgroundColor = colorgenerator();
+        }, 500);
+
+
+    </script>
+</body>
+
+</html>
