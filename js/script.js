@@ -64,7 +64,7 @@ async function getsongs(folder) {
 
 async function main() {
 
-    songs = await getsongs("http://192.168.0.104:3000/songs/");
+    songs = await getsongs("http://127.0.0.1:3000/songs/");
     let songUL = document.querySelector(".songlist ul");
     songUL.innerHTML = "";
 
@@ -117,7 +117,7 @@ async function main() {
         currentsong.currentTime = currentsong.duration * percent / 100;
     });
 
-    let trendingSongs = await getsongs("http://192.168.0.104:3000/songs/trending/");
+    let trendingSongs = await getsongs("http://127.0.0.1:3000/songs/trending/");
     document.querySelectorAll(".trending ul li").forEach((li, index) => {
         li.addEventListener("click", () => {
             if (trendingSongs[index]) {
@@ -126,7 +126,7 @@ async function main() {
         });
     });
 
-    let artistSongs = await getsongs("http://192.168.0.104:3000/songs/artist/");
+    let artistSongs = await getsongs("http://127.0.0.1:3000/songs/artist/");
     document.querySelectorAll(".artist ul li").forEach((li, index) => {
         li.addEventListener("click", () => {
             if (artistSongs[index]) {
@@ -135,7 +135,7 @@ async function main() {
         });
     });
 
-    let albumSongs = await getsongs("http://192.168.0.104:3000/songs/album/");
+    let albumSongs = await getsongs("http://127.0.0.1:3000/songs/album/");
     document.querySelectorAll(".albums ul li").forEach((li, index) => {
         li.addEventListener("click", () => {
             if (albumSongs[index]) {

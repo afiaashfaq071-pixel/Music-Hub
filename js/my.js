@@ -18,7 +18,7 @@ function secondsToMinutesSeconds(seconds) {
 }
 async function getsongs() {
 
-    let a = await fetch("http://192.168.0.103:3000/songs/")
+    let a = await fetch("http://192.168.0.101:3000/songs/")
     let response = await a.text()
     console.log(response);
     
@@ -100,7 +100,7 @@ main()
 let currentsong01 = new Audio();
 
 async function getsongs01() {
-    let response = await fetch("http://192.168.0.103:3000/songs/trending/");
+    let response = await fetch("http://192.168.0.101:3000/songs/trending/");
     let text = await response.text();
 
     let div = document.createElement("div");
@@ -194,7 +194,7 @@ main01();
 let currentsong02 = new Audio();
 
 async function getsongs02() {
-    let response = await fetch("http://192.168.0.103:3000/songs/artist/");
+    let response = await fetch("http://192.168.0.101:3000/songs/artist/");
     let text = await response.text();
 
     let div = document.createElement("div");
@@ -289,7 +289,7 @@ main02();
 let currentsong03 = new Audio();
 
 async function getsongs03() {
-    let response = await fetch("http://192.168.0.103:3000/songs/album/");
+    let response = await fetch("http://192.168.0.101:3000/songs/album/");
     let text = await response.text();
     console.log(response);
 
