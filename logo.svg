@@ -1,28 +1,13 @@
-<svg
-  width="70"
-  height="70"
-  viewBox="0 0 512 512"
-  xmlns="http://www.w3.org/2000/svg"
->
+<svg width="70" height="70" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient
-      id="logoGradient"
-      x1="0%"
-      y1="0%"
-      x2="100%"
-      y2="100%"
-    >
-      <stop offset="0%" stop-color="#4ADE80"/>
-      <stop offset="50%" stop-color="#2DD4BF"/>
-      <stop offset="100%" stop-color="#14B8A6"/>
+    <linearGradient id="darkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22D3EE"/>
+      <stop offset="50%" stop-color="#14B8A6"/>
+      <stop offset="100%" stop-color="#0F766E"/>
     </linearGradient>
 
     <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur
-        stdDeviation="8"
-        result="blur"
-      />
-
+      <feGaussianBlur stdDeviation="7" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
@@ -30,52 +15,37 @@
     </filter>
   </defs>
 
-  <!-- Left Sound Bar -->
-  <rect
-    x="85"
-    y="190"
-    width="32"
-    height="132"
-    rx="16"
-    fill="url(#logoGradient)"
-    filter="url(#glow)"
-  />
+  <!-- Dark circular background -->
+  <circle cx="256" cy="256" r="235" fill="#0B0F12"/>
+
+  <!-- Music-wave bars -->
+  <rect x="78" y="215" width="28" height="82" rx="14"
+        fill="url(#darkGradient)" filter="url(#glow)"/>
+
+  <rect x="406" y="215" width="28" height="82" rx="14"
+        fill="url(#darkGradient)" filter="url(#glow)"/>
 
   <!-- Main M -->
   <path
-    d="
-      M145 322
-      V190
-      C145 172 158 160 175 160
-      C186 160 196 166 204 176
-      L256 239
-      L308 176
-      C316 166 326 160 337 160
-      C354 160 367 172 367 190
-      V322
-      C367 334 357 344 345 344
-      C333 344 323 334 323 322
-      V218
-      L276 274
-      C265 287 247 287 236 274
-      L189 218
-      V322
-      C189 334 179 344 167 344
-      C155 344 145 334 145 322
-      Z
-    "
-    fill="url(#logoGradient)"
-    filter="url(#glow)"
-  />
-
-  <!-- Right Sound Bar -->
-  <rect
-    x="395"
-    y="190"
-    width="32"
-    height="132"
-    rx="16"
-    fill="url(#logoGradient)"
+    d="M130 340
+       V180
+       C130 163 144 150 161 150
+       C174 150 185 157 194 169
+       L256 247
+       L318 169
+       C327 157 338 150 351 150
+       C368 150 382 163 382 180
+       V340
+       C382 354 371 365 357 365
+       C343 365 332 354 332 340
+       V224
+       L277 292
+       C266 306 246 306 235 292
+       L180 224
+       V340
+       C180 354 169 365 155 365
+       C141 365 130 354 130 340Z"
+    fill="url(#darkGradient)"
     filter="url(#glow)"
   />
 </svg>
