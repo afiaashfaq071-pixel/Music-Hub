@@ -1,79 +1,123 @@
-console.log("Let's write some JavaScript");
 
+console.log("Let's write some JavaScript")
 let currentsong = new Audio();
 let play = document.querySelector(".play img");
 let songs;
-
 let currentPlaylist = [];
 let currentIndex = 0;
-
 function secondsToMinutesSeconds(seconds) {
     if (isNaN(seconds) || seconds < 0) return "Loading....";
-
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = Math.floor(seconds % 60);
-
     return `${String(minutes).padStart(2, "0")}:${String(remainingSeconds).padStart(2, "0")}`;
 }
-
 function playmusic(track, title = "", artist = "", playlist = [], index = 0) {
     currentPlaylist = playlist;
     currentIndex = index;
-
     currentsong.pause();
     currentsong.currentTime = 0;
     currentsong.src = track;
-    currentsong.play().catch(e => console.log(e));
-
+    currentsong.play().catch(e => console.log("Error playing:", e));
     play.src = "pause.svg";
-
     if (title !== "") {
-        document.querySelector(".songinfo").innerHTML = `${title}<br>${artist}`;
+        document.querySelector(".songinfo").innerHTML = `${title}<br><small>${artist}</small>`;
     } else {
-
-        document.querySelector(".songinfo").innerHTML = decodeURIComponent(track.split("/%5Csongs%5C")[1]);
+        let name = decodeURIComponent(track.split("/").pop()).replace(".mp3", "");
+        document.querySelector(".songinfo").innerHTML = name; 
     }
     document.querySelector(".songtime").innerHTML = "00:00 / 00:00";
 }
+
+
 function playNext() {
     if (currentPlaylist.length === 0) return;
-    currentIndex = (currentIndex + 1) % currentPlaylist.length; // loop
-    playmusic(currentPlaylist[currentIndex], "", "", currentPlaylist, currentIndex);
+    currentIndex = (currentIndex + 1) % currentPlaylist.length;
+    playmusic(currentPlaylist[currentIndex], "", "", currentPlaylist, currentIndex); // yahan 2 "" add kiye
 }
 
 function playPrevious() {
     if (currentPlaylist.length === 0) return;
-    currentIndex = (currentIndex - 1 + currentPlaylist.length) % currentPlaylist.length; // loop
-    playmusic(currentPlaylist[currentIndex], "", currentPlaylist, currentIndex);
+    currentIndex = (currentIndex - 1 + currentPlaylist.length) % currentPlaylist.length;
+    playmusic(currentPlaylist[currentIndex], "", currentPlaylist, currentIndex); // yahan bhi 2 ""
 }
 
 async function getsongs(folder) {
-    let response = await fetch(folder);
-    let text = await response.text();
-    let div = document.createElement("div");
-    div.innerHTML = text;
-    let links = div.getElementsByTagName("a");
-    let songs = [];
-    for (let i = 0; i < links.length; i++) {
-        if (links[i].href.endsWith(".mp3")) {
-            songs.push(links[i].href);
-        }
+    if (folder === "songs/") {
+        return [
+            "songs/52%20Bars%20by%20Karan%20Aujla.mp3",
+            "songs/Afsos%20by%20Anuv%20Jain.mp3",
+            "songs/AP%20Dhilion.mp3",
+            "songs/Boom%20Shaka%20by%20KRI$NA.mp3",
+            "songs/Dhanda%20Nayoliwala.mp3",
+            "songs/Diljit%20Dosanjh.mp3",
+            "songs/Gal%20Sun%20by%20Sabal%20Batin.mp3",
+            "songs/Hasan%20Raheem.mp3",
+            "songs/Ishq%20Bawla%20by%20Dhanda%20Nayoliwala.mp3",
+            "songs/Jhol%20by%20Maanu.mp3",
+            "songs/Karan%20Aujla.mp3",
+            "songs/Lalkaara%20by%20Diljit%20Dosanjh.mp3",
+            "songs/Making%20Memories%20by%20Karan%20Aujla.mp3",
+            "songs/Moves%20by%20Shubh.mp3",
+            "songs/Pal%20Pal%20by%20Afusic.mp3",
+            "songs/Shubh.mp3",
+            "songs/Taare%20by%20Farak.mp3",
+            "songs/Talwinder.mp3",
+            "songs/Udaarian%20by%20Satinder%20Sartaaj.mp3",
+            "songs/Wavy%20by%20Karan%20Aujla.mp3",
+            "songs/Young%20G.O.A.T%20by%20Cheema%20Y.mp3",
+        ];
     }
-    return songs;
+    if (folder === "songs/trending/") {
+        return [
+            "songs/Boom%20Shaka%20by%20KRI$NA.mp3",
+            "songs/Jhol%20by%20Maanu.mp3",
+            "songs/Moves%20by%20Shubh.mp3",
+            "songs/Taare%20by%20Farak.mp3",
+            "songs/Udaarian%20by%20Satinder%20Sartaaj.mp3",
+            "songs/Afsos%20by%20Anuv%20Jain.mp3",
+            "songs/Ishq%20Bawla%20by%20Dhanda%20Nayoliwala.mp3",
+            "songs/52%20Bars%20by%20Karan%20Aujla.mp3",
+            "songs/Gal%20Sun%20by%20Sabal%20Batin.mp3"
+        ];
+    }
+    if (folder === "songs/artist/") {
+        return [
+            "songs/Talwinder.mp3",
+            "songs/Dhanda%20Nayoliwala.mp3",
+            "songs/Karan%20Aujla.mp3",
+            "songs/Shubh.mp3",
+            "songs/Hasan%20Raheem.mp3",
+            "songs/Diljit%20Dosanjh.mp3",
+            "songs/AP%20Dhilion.mp3"
+        ];
+    }
+
+    if (folder === "songs/album/") {
+        return [
+            "songs/Boom%20Shaka%20by%20KRI$NA.mp3",
+            "songs/Wavy%20by%20Karan%20Aujla.mp3",
+            "songs/Pal%20Pal%20by%20Afusic.mp3",
+            "songs/Lalkaara%20by%20Diljit%20Dosanjh.mp3",
+            "songs/Making%20Memories%20by%20Karan%20Aujla.mp3",
+            "songs/Young%20G.O.A.T%20by%20Cheema%20Y.mp3",
+            "songs/Jhol%20by%20Maanu.mp3"
+        ];
+    }
+    return [];
 }
 
 async function main() {
 
-    songs = await getsongs("http://127.0.0.1:3000/songs/");
+    songs = await getsongs("songs/");
     let songUL = document.querySelector(".songlist ul");
     songUL.innerHTML = "";
 
     songs.forEach(song => {
-        let name = decodeURIComponent(song.split("/%5Csongs%5C")[1]);
+        let name = decodeURIComponent(song.split("/").pop()).replace(".mp3", "");
         songUL.innerHTML += `
         <li>
             <img src="music.svg">
-            ${name}
+            <span>${name}</span>
             <img src="play.svg">
         </li>`;
     });
@@ -83,7 +127,6 @@ async function main() {
             playmusic(songs[index], "", "", songs, index);
         });
     });
-
 
     play.addEventListener("click", () => {
         if (currentsong.paused) {
@@ -95,12 +138,9 @@ async function main() {
         }
     });
 
-
     document.querySelector(".previous").addEventListener("click", playPrevious);
-
     document.querySelector(".next").addEventListener("click", playNext);
 
-   
     currentsong.addEventListener("ended", playNext);
 
     currentsong.addEventListener("timeupdate", () => {
@@ -117,7 +157,7 @@ async function main() {
         currentsong.currentTime = currentsong.duration * percent / 100;
     });
 
-    let trendingSongs = await getsongs("http://127.0.0.1:3000/songs/trending/");
+    let trendingSongs = await getsongs("songs/trending/");
     document.querySelectorAll(".trending ul li").forEach((li, index) => {
         li.addEventListener("click", () => {
             if (trendingSongs[index]) {
@@ -126,7 +166,7 @@ async function main() {
         });
     });
 
-    let artistSongs = await getsongs("http://127.0.0.1:3000/songs/artist/");
+    let artistSongs = await getsongs("songs/artist/");
     document.querySelectorAll(".artist ul li").forEach((li, index) => {
         li.addEventListener("click", () => {
             if (artistSongs[index]) {
@@ -134,8 +174,7 @@ async function main() {
             }
         });
     });
-
-    let albumSongs = await getsongs("http://127.0.0.1:3000/songs/album/");
+    let albumSongs = await getsongs("songs/album/");
     document.querySelectorAll(".albums ul li").forEach((li, index) => {
         li.addEventListener("click", () => {
             if (albumSongs[index]) {
@@ -154,4 +193,3 @@ async function main() {
 
 }
 main();
-
