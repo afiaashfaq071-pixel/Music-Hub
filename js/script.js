@@ -195,42 +195,7 @@ async function main() {
         );
     });
 
-    document.addEventListener("DOMContentLoaded", () => {
-        const searchInput = document.getElementById("text");
-        const allSections = document.querySelectorAll(".trending ul, .artist ul, .albums ul");
-        const allCards = document.querySelectorAll(".trending li, .artist li, .albums li");
-
-        searchInput.addEventListener("input", () => {
-            const query = searchInput.value.toLowerCase().trim();
-
-            if (query === "") {
-                // Search empty hai to sab dikhao
-                allCards.forEach(card => card.style.display = "block");
-                document.querySelectorAll(".right > div").forEach(sec => sec.style.display = "block");
-                return;
-            }
-
-            allSections.forEach(section => {
-                let hasVisible = false;
-                const cards = section.querySelectorAll("li");
-
-                cards.forEach(card => {
-                    const title = card.querySelector("h3")?.innerText.toLowerCase() || "";
-                    const subtitle = card.querySelector("p")?.innerText.toLowerCase() || "";
-
-                    if (title.includes(query) || subtitle.includes(query)) {
-                        card.style.display = "block";
-                        hasVisible = true;
-                    } else {
-                        card.style.display = "none";
-                    }
-                });
-
-               
-                section.parentElement.style.display = hasVisible ? "block" : "none";
-            });
-        });
-    });
+ 
     let trendingSongs = await getsongs("songs/trending/");
     document.querySelectorAll(".trending ul li").forEach((li, index) => {
         li.addEventListener("click", () => {
