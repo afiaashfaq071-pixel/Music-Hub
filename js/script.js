@@ -23,7 +23,7 @@ function playmusic(track, title = "", artist = "", playlist = [], index = 0) {
         document.querySelector(".songinfo").innerHTML = `${title}<br><small>${artist}</small>`;
     } else {
         let name = decodeURIComponent(track.split("/").pop()).replace(".mp3", "");
-        document.querySelector(".songinfo").innerHTML = name; 
+        document.querySelector(".songinfo").innerHTML = name;
     }
     document.querySelector(".songtime").innerHTML = "00:00 / 00:00";
 }
@@ -142,20 +142,60 @@ async function main() {
     document.querySelector(".next").addEventListener("click", playNext);
 
     currentsong.addEventListener("ended", playNext);
-
     currentsong.addEventListener("timeupdate", () => {
+
         if (currentsong.duration) {
+
+            let progress =
+                (currentsong.currentTime / currentsong.duration) * 100;
+
             document.querySelector(".songtime").innerHTML =
                 `${secondsToMinutesSeconds(currentsong.currentTime)} / ${secondsToMinutesSeconds(currentsong.duration)}`;
-            document.querySelector(".circle").style.left = (currentsong.currentTime / currentsong.duration) * 100 + "%";
+
+            document.querySelector(".circle").style.left =
+                progress + "%";
+            document.querySelector(".mobile-seekbar")
+                .style.setProperty("--mobile-progress", progress + "%");
         }
     });
 
     document.querySelector(".seekbar").addEventListener("click", e => {
-        let percent = (e.offsetX / e.target.getBoundingClientRect().width) * 100;
-        document.querySelector(".circle").style.left = percent + "%";
-        currentsong.currentTime = currentsong.duration * percent / 100;
+
+        let percent =
+            (e.offsetX / e.target.getBoundingClientRect().width) * 100;
+
+        percent = Math.max(0, Math.min(100, percent));
+
+        document.querySelector(".circle").style.left =
+            percent + "%";
+
+        currentsong.currentTime =
+            currentsong.duration * percent / 100;
     });
+
+
+    document.querySelector(".mobile-seekbar").addEventListener("click", e => {
+
+        let seekbar = e.currentTarget;
+        let rect = seekbar.getBoundingClientRect();
+
+        let position = e.clientX - rect.left;
+
+        let percent =
+            (position / rect.width) * 100;
+
+        percent = Math.max(0, Math.min(100, percent));
+
+        currentsong.currentTime =
+            currentsong.duration * percent / 100;
+
+        seekbar.style.setProperty(
+            "--mobile-progress",
+            percent + "%"
+        );
+    });
+
+
 
     let trendingSongs = await getsongs("songs/trending/");
     document.querySelectorAll(".trending ul li").forEach((li, index) => {

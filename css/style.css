@@ -1,3 +1,4 @@
+
 * {
     padding: 0;
     margin: 0;
@@ -5,8 +6,8 @@
 }
 
 body {
-    background-color: black;
-    color: white;
+    background-color: #08060D;
+    color: #FFFFFF;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -27,7 +28,7 @@ nav {
 
 
 .home {
-    background-color: #2e2e2e;
+    background-color: #21152F;
     padding: 10px;
     margin: auto;
     display: flex;
@@ -35,7 +36,6 @@ nav {
     align-items: center;
     border-radius: 100px;
     cursor: pointer;
-
 }
 
 .icon {
@@ -55,14 +55,14 @@ main {
 .right {
     width: 70vw;
     height: 90vh;
-    background-color: #1f1f1f;
+    background-color: #120E18;
 }
 
 
 .left {
     position: fixed;
     width: 30vw;
-    background-color: #141414;
+    background-color: #0E0A13;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -73,14 +73,13 @@ main {
     width: 100%;
     height: 80px;
     z-index: 10;
-    box-shadow: 0 6px 10px #0009;
+    box-shadow: 0 6px 10px #00000099;
     flex-shrink: 0;
-    background: #141414;
+    background: #0E0A13;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
-
 }
 
 .library .text {
@@ -94,7 +93,7 @@ main {
     color: white;
     position: absolute;
     right: 30px;
-    background-color: #262626;
+    background-color: #21152F;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -107,7 +106,7 @@ main {
 }
 
 .library button .svg:hover {
-    background-color: #303030;
+    background-color: #352044;
 }
 
 .cookies {
@@ -121,7 +120,7 @@ main {
 .search-wrapper {
     display: flex;
     align-items: center;
-    background: #242424;
+    background: #1A1422;
     border-radius: 500px;
     padding: 0 14px;
     width: 450px;
@@ -131,15 +130,14 @@ main {
     margin-left: 10px;
     transition: border 0.1s ease;
     transition: background-color .2s ease-out;
-
 }
 
 .search-wrapper:hover {
-    background-color: #3b3b3b;
+    background-color: #291D35;
 }
 
 .search-wrapper:active {
-    border: 2px solid white;
+    border: 2px solid #D946EF;
     transition: border .2s ease-out;
 }
 
@@ -153,12 +151,12 @@ main {
 }
 
 .search-wrapper input::placeholder {
-    color: #b3b3b3;
+    color: #A8A0B2;
 }
 
 .search-wrapper:focus-within {
-    border: 2px solid white;
-    background: #2a2a2a;
+    border: 2px solid #A855F7;
+    background: #21172B;
 }
 
 .end {
@@ -176,18 +174,18 @@ main {
 
 .premium span {
     font-weight: 700;
-    color: #b3b3b3;
+    color: #A8A0B2;
     cursor: pointer;
     transition: color .2s ease-out;
 }
 
 .premium span:hover {
-    color: white;
+    color: #F5D0FE;
 }
 
 .app {
     font-weight: 700;
-    color: #b3b3b3;
+    color: #A8A0B2;
     cursor: pointer;
     margin-right: 30px;
     font-size: 15px;
@@ -198,19 +196,19 @@ main {
 }
 
 .app:hover {
-    color: white;
+    color: #F5D0FE;
 }
 
 .sign {
     font-weight: 700;
-    color: #b3b3b3;
+    color: #A8A0B2;
     cursor: pointer;
     margin-right: 20px;
     transition: color .2s ease-out;
 }
 
 .sign:hover {
-    color: white;
+    color: #F5D0FE;
 }
 
 .log button {
@@ -236,8 +234,7 @@ main {
 
 .log button:hover {
     transform: scale(12px);
-    background-color: lightgray;
-
+    background-color: #E9D5FF;
 }
 
 .cookies ul {
@@ -251,13 +248,13 @@ main {
 
 .cookies ul li {
     font-size: 12px;
-    color: #8d8d8d;
+    color: #756C80;
     cursor: pointer;
     transition: color .2s ease-out;
 }
 
 .cookies ul li:hover {
-    color: white;
+    color: #F5D0FE;
 }
 
 .cookies {
@@ -267,7 +264,7 @@ main {
     position: absolute;
     bottom: 0;
     margin-top: auto;
-    background: #121212;
+    background: #0C0910;
 }
 
 .cookies .cook {
@@ -284,19 +281,19 @@ main {
 }
 
 .cookies button {
-    background-color: #141414;
+    background-color: #120D18;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid gray;
+    border: 1px solid #5B5263;
     padding: 5px 15px;
     border-radius: 24px;
     cursor: pointer;
 }
 
 .cookies button:hover {
-    border: 1px solid white;
+    border: 1px solid #D8B4FE;
 }
 
 .cookies button img {
@@ -323,70 +320,66 @@ main {
 
 .right::-webkit-scrollbar {
     width: 8px;
-
 }
 
 .trending a {
     text-decoration: none;
-    color: white;
+    color: #FFFFFF;
     font-weight: 700;
     font-size: 24px;
 }
 
 .trending a:hover {
     text-decoration: underline;
+    text-decoration-color: #D946EF;
 }
 
 .albums a {
     text-decoration: none;
-    color: white;
+    color: #FFFFFF;
     font-size: 24px;
     font-weight: 700;
 }
 
 .albums a:hover {
     text-decoration: underline;
+    text-decoration-color: #D946EF;
 }
 
 .artist a {
     text-decoration: none;
-    color: white;
+    color: #FFFFFF;
     font-size: 24px;
     font-weight: 700;
 }
 
 .artist a:hover {
     text-decoration: underline;
+    text-decoration-color: #D946EF;
 }
 
 .trending::-webkit-scrollbar {
     width: 8px;
-
 }
 
 .albums::-webkit-scrollbar {
     width: 8px;
-
 }
 
 .artist::-webkit-scrollbar {
     width: 8px;
-
 }
 
 .trending ul::-webkit-scrollbar {
     width: 8px;
-
 }
 
 .albums ul::-webkit-scrollbar {
     width: 8px;
-
 }
 
 .artist ul::-webkit-scrollbar {
     width: 8px;
-
 }
 
 .trending ul {
@@ -394,7 +387,6 @@ main {
     gap: 20px;
     height: 300px;
     overflow: auto;
-
 }
 
 .trending ul li {
@@ -414,9 +406,9 @@ main {
     padding-bottom: 20px;
     padding-right: 9px;
     padding-left: 9px;
-    background-color: rgb(50, 50, 50);
+    background-color: #21172B;
     border-radius: 6px;
-    border: 2px solid #1db954;
+    border: 2px solid #A855F7;
 }
 
 .albums ul li:hover {
@@ -424,9 +416,9 @@ main {
     padding-bottom: 20px;
     padding-right: 9px;
     padding-left: 9px;
-    background-color: rgb(50, 50, 50);
+    background-color: #21172B;
     border-radius: 6px;
-    border: 2px solid #1db954;
+    border: 2px solid #A855F7;
 }
 
 .artist ul li:hover {
@@ -434,9 +426,9 @@ main {
     padding-bottom: 20px;
     padding-right: 9px;
     padding-left: 9px;
-    background-color: rgb(50, 50, 50);
+    background-color: #21172B;
     border-radius: 6px;
-    border: 2px solid #1db954;
+    border: 2px solid #A855F7;
 }
 
 .albums ul {
@@ -444,7 +436,6 @@ main {
     gap: 20px;
     height: 300px;
     overflow: auto;
-
 }
 
 .albums ul li {
@@ -457,7 +448,6 @@ main {
     justify-content: center;
     padding: 10px;
     transition: padding .2s ease-out;
-
 }
 
 .albums ul li h2 {
@@ -473,7 +463,6 @@ main {
     gap: 20px;
     height: 300px;
     overflow: auto;
-
 }
 
 .artist ul li {
@@ -509,7 +498,6 @@ main {
 }
 
 .artist ul li img {
-
     border-radius: 50%;
 }
 
@@ -548,7 +536,7 @@ main {
     min-height: 80px;
     width: 100%;
     padding: 15px;
-    background-color: black;
+    background-color: #0E0A13;
     position: fixed;
     bottom: 0;
     display: flex;
@@ -556,11 +544,10 @@ main {
     align-items: center;
     gap: 10px;
     border-radius: 19px;
-
 }
 
 .playbar img {
-    background-color: black;
+    background-color: #0E0A13;
     height: 40px;
     border-radius: 50%;
 }
@@ -576,7 +563,7 @@ main {
     height: 500px;
     margin: 10px;
     border-radius: 10px;
-    background: #121212;
+    background: #0C0910;
     padding: 10px;
     flex: 1;
     overflow-y: auto;
@@ -595,8 +582,8 @@ main {
     align-items: center;
     padding: 12px;
     margin-bottom: 8px;
-    background: #1e1e1e;
-    border: 1px solid #f8f7f7;
+    background: #18121F;
+    border: 1px solid #3B3045;
     border-radius: 8px;
     color: white;
     transition: 0.3s;
@@ -605,12 +592,12 @@ main {
 }
 
 .songlist ul li:hover {
-    background: #2a2a2a;
-    border-color: #1db954;
+    background: #24182E;
+    border-color: #A855F7;
 }
 
 .songlist ul li:active {
-    border-color: #1db954;
+    border-color: #D946EF;
 }
 
 .songlist::-webkit-scrollbar {
@@ -618,12 +605,12 @@ main {
 }
 
 .songlist::-webkit-scrollbar-thumb {
-    background: #555;
+    background: #51465A;
     border-radius: 10px;
 }
 
 .songlist::-webkit-scrollbar-thumb:hover {
-    background: #1db954;
+    background: #A855F7;
 }
 
 .songlist ul li img {
@@ -639,7 +626,7 @@ main {
     position: relative;
     height: 5px;
     width: 40%;
-    background-color: aqua;
+    background-color: #7C3AED;
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -653,7 +640,7 @@ main {
 .circle {
     position: absolute;
     transition: left 0.5s;
-    background-color: white;
+    background-color: #FFFFFF;
     width: 18px;
     height: 18px;
     border-radius: 50%;
@@ -667,7 +654,7 @@ main {
 
 .songinfo,
 .songtime {
-    color: aqua;
+    color: #C084FC;
     font-weight: 700;
 }
 
@@ -679,10 +666,10 @@ main {
     display: none;
 }
 
-.songlist ul li:active{
-    background: #1db954;
-    color: black;
-    border-color: green;
+.songlist ul li:active {
+    background: #6B21A8;
+    color: #FFFFFF;
+    border-color: #D946EF;
 }
 
 
@@ -781,7 +768,7 @@ main {
         display: block;
         padding-right: 10px;
         margin-left: 40px;
-        background-color: rgb(97, 15, 15);
+        background-color: #5B1F32;
         padding: 5px 10px;
         border-radius: 50%;
     }
@@ -859,6 +846,7 @@ main {
         padding-bottom: 20px;
     }
 
+
 }
 
 
@@ -893,3 +881,64 @@ main {
         width: 100%;
     }
 }
+
+.mobile-seekbar {
+    display: none;
+}
+
+
+@media (max-width: 600px) {
+
+    .playbar {
+        min-height: 115px;
+        padding: 15px 15px 28px;
+    }
+
+    .controlbuttons {
+        gap: 25px;
+        margin-bottom: 10px;
+    }
+
+    .playbar .seekbar {
+        display: none;
+    }
+
+    .mobile-seekbar {
+        display: block;
+        position: absolute;
+        left: 30px;
+        right: 30px;
+        bottom: 16px;
+        width: auto;
+        height: 5px;
+        background-color: #7C3AED;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .mobile-seekbar::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: var(--mobile-progress, 0%);
+        height: 100%;
+        background-color: #D946EF;
+        border-radius: 10px;
+        pointer-events: none;
+    }
+
+    .mobile-circle {
+        position: absolute;
+        left: var(--mobile-progress, 0%);
+        top: 50%;
+        width: 18px;
+        height: 18px;
+        background-color: #FFFFFF;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+        transition: left 0.5s;
+    }
+}
+
