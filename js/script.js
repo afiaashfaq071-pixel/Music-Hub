@@ -226,7 +226,7 @@ async function main() {
                     }
                 });
 
-                // Agar uss section me ek bhi result nahi to pura section hide kar do
+               
                 section.parentElement.style.display = hasVisible ? "block" : "none";
             });
         });
